@@ -9,6 +9,7 @@
 use rand::prelude::*;
 
 fn main() {
+    println!("\n\n****** This is a Rust script! 🦀🚀 ******\n\n");
     let x: i8 = rand::thread_rng().gen_range(0..100);
     println!("A random number from 0 to 100: {}", x);
     let y: i8 = rand::thread_rng().gen_range(0..100);

@@ -26,7 +26,7 @@ elif [ "$RUST_SCRIPT_VERSION" ]; then # Otherwise install a specific version of 
     install_rust_script_env_version
 fi
 
-rust-script $BITRISE_STEP_SOURCE_DIR/$RUST_SCRIPT_FILE_PATH
+rust-script --cargo-output $BITRISE_STEP_SOURCE_DIR/$RUST_SCRIPT_FILE_PATH
 
 case "$OSTYPE" in
   darwin*)  
