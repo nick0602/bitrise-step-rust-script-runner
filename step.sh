@@ -19,7 +19,7 @@ fi
 
 # If rust-script is (not present OR autoupdate is enabled) AND (no custom version is set), then run cargo install with no version.
 if (! command -v rust-script &> /dev/null || [ "$RUST_SCRIPT_AUTO_UPDATE" = true ]) && [ -z "$RUST_SCRIPT_VERSION" ]; then
-    printf "Installing or updating rust-script..."
+    printf "Installing or updating rust-script...\n"
     install_rust_script_latest
 elif [ "$RUST_SCRIPT_VERSION" ]; then # Otherwise install a specific version of rust-script.
     printf "Selected rust-script version is $RUST_SCRIPT_VERSION, installing...\n"
