@@ -9,11 +9,20 @@ install_rust_script_env_version() {
     cargo install rust-script --version $RUST_SCRIPT_VERSION
 }
 
-# source "$HOME/.cargo/env"
+if [ -z "${RUST_SCRIPT_FILE_PATH}" ]; then
+  printf "No file path provided, make sure RUST_SCRIPT_FILE_PATH is set.\n"
+  exit 1
+fi
+
+# If no Rust Toolchain is present, fail the step.
+if ! command -v rustup &> /dev/null; then
+  printf "Rust Toolchain is not installed, exiting...\n"
+  exit 1
+fi
 
 # If both envs are set, exit as it's undefined behavior.
 if [ "$RUST_SCRIPT_VERSION" ] && [ "$RUST_SCRIPT_AUTO_UPDATE" = true ]; then 
-    printf "Cannot set both RUST_SCRIPT_VERSION and RUST_SCRIPT_AUTO_UPDATE variables! Exiting..." >&2
+    printf "Cannot set both RUST_SCRIPT_VERSION and RUST_SCRIPT_AUTO_UPDATE variables! Exiting..."
     exit 1
 fi
 
