@@ -9,7 +9,7 @@ install_rust_script_env_version() {
     cargo install rust-script --version $RUST_SCRIPT_VERSION
 }
 
-source "$HOME/.cargo/env"
+# source "$HOME/.cargo/env"
 
 # If both envs are set, exit as it's undefined behavior.
 if [ "$RUST_SCRIPT_VERSION" ] && [ "$RUST_SCRIPT_AUTO_UPDATE" = true ]; then 
